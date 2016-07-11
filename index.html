@@ -18,7 +18,12 @@
         (function () {
             'use strict';
 
-            var HelloWorld = React.createElement('div', { });
+            var HelloWorld = React.createElement('div', {
+                children: [
+                    React.createElement('h1', { children: 'I can be a header' }),
+                    React.createElement('p', { children: 'And I can be a paragraph' })
+                ]
+            });
 
             ReactDOM.render(HelloWorld, document.getElementById('container'));
         })();
