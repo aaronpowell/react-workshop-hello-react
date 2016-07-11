@@ -17,6 +17,12 @@
     <script>
         (function () {
             'use strict';
+
+            var HelloWorld = React.createElement('h1', {
+                children: 'Hello World'
+            });
+
+            ReactDOM.render(HelloWorld, document.getElementById('container'));
         })();
     </script>
 </body>
