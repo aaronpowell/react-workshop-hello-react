@@ -4,7 +4,7 @@
     <title>Hello World in React</title>
     <style>
         body {
-            margin: 0 auto;
+            margin: 20px auto;
             width: 778px;
         }
     </style>
@@ -17,6 +17,29 @@
     <script>
         (function () {
             'use strict';
+
+            var Form = React.createClass({
+                displayName: 'Form',
+
+                getInitialState: function () {
+                    return {
+                        email: '',
+                        password: ''
+                    };
+                },
+
+                render: function () {
+                    return React.createElement('form', {
+                        method: 'post',
+                        action: '/foo',
+                        className: 'custom-form',
+                        children: [
+                        ]
+                    });
+                }
+            });
+
+            ReactDOM.render(React.createElement(Form), document.getElementById('container'));
         })();
     </script>
 </body>
