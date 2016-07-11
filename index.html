@@ -4,7 +4,7 @@
     <title>Hello World in React</title>
     <style>
         body {
-            margin: 0 auto;
+            margin: 20px auto;
             width: 778px;
         }
     </style>
@@ -17,6 +17,80 @@
     <script>
         (function () {
             'use strict';
+
+            var Form = React.createClass({
+                displayName: 'Form',
+
+                getInitialState: function () {
+                    return {
+                        email: '',
+                        password: ''
+                    };
+                },
+
+                render: function () {
+                    return React.createElement('form', {
+                        method: 'post',
+                        action: '/foo',
+                        className: 'custom-form',
+                        children: [
+                            React.createElement('fieldset', {
+                                children: [
+                                    React.createElement('label', {
+                                        htmlFor: 'email',
+                                        children: ['Email:']
+                                    }),
+                                    React.createElement('input', {
+                                        type: 'email',
+                                        name: 'email',
+                                        id: 'email',
+                                        value: this.state.email,
+                                        onChange: this.onFieldChange
+                                    })
+                                ]
+                            }),
+                            React.createElement('fieldset', {
+                                children: [
+                                    React.createElement('label', {
+                                        htmlFor: 'password',
+                                        children: ['Password:']
+                                    }),
+                                    React.createElement('input', {
+                                        type: 'password',
+                                        name: 'password',
+                                        id: 'password',
+                                        value: this.state.password,
+                                        onChange: this.onFieldChange
+                                    })
+                                ]
+                            }),
+                            React.createElement('fieldset', {
+                                children: [
+                                    React.createElement('button', {
+                                        type: 'submit',
+                                        children: 'Login'
+                                    })
+                                ]
+                            })
+                        ],
+                        onSubmit: this.submitForm
+                    });
+                },
+
+                onFieldChange: function (e) {
+                    var newState = {};
+                    newState[e.target.name] = e.target.value;
+                    this.setState(newState);
+                },
+
+                submitForm: function (e) {
+                    e.preventDefault();
+
+                    alert('Submitting form with: ' + this.state.email + ':' + this.state.password);
+                }
+            });
+
+            ReactDOM.render(React.createElement(Form), document.getElementById('container'));
         })();
     </script>
 </body>
