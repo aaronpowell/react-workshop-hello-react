@@ -21,14 +21,18 @@
             // Put your code here!
             var HelloWorld = React.createClass({
                 displayName: 'HelloWorld',
+                getInitialState: function() { return { clicks: 0 } },
+                clicked: function() {
+                    this.setState({ clicks: this.state.clicks + 1 })
+                },
                 render: function() {
                     return React.createElement('div', null,
                         React.createElement('h1', null,
                             React.createElement('a', { id: 'hello-world' }),
                             'Hello world'),
                         React.createElement('p', {
-                            onClick: function() { console.log('Hi!') }
-                        }, 'React is pretty awesome'))
+                            onClick: this.clicked
+                        }, 'React is pretty awesome:' + this.state.clicks))
                 }
             })
             ReactDOM.render(React.createElement(HelloWorld), document.getElementById('container'))
