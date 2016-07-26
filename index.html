@@ -14,7 +14,8 @@
 
     <script src="react.js"></script>
     <script src="react-dom.js"></script>
-    <script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+    <script type='text/babel'>
         (function () {
             'use strict';
 
@@ -26,16 +27,20 @@
                     this.setState({ clicks: this.state.clicks + 1 })
                 },
                 render: function() {
-                    return React.createElement('div', null,
-                        React.createElement('h1', null,
-                            React.createElement('a', { id: 'hello-world' }),
-                            'Hello world'),
-                        React.createElement('p', {
-                            onClick: this.clicked
-                        }, 'React is pretty awesome:' + this.state.clicks))
+                    return (
+                        <div>
+                            <h1>
+                                <a id='hello-world' />
+                                Hello world
+                            </h1>
+                            <p onClick={this.clicked}>
+                                {'React is pretty awesome: ' + this.state.clicks}
+                            </p>
+                        </div>
+                    )
                 }
             })
-            ReactDOM.render(React.createElement(HelloWorld), document.getElementById('container'))
+            ReactDOM.render(<HelloWorld />, document.getElementById('container'))
         })();
     </script>
 </body>
