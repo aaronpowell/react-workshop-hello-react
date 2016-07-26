@@ -19,8 +19,10 @@
             'use strict';
 
             // Put your code here!
-            var hello = React.createElement('div', null, 
-                React.createElement('h1', null, 'Hello world'),
+            var hello = React.createElement('div', null,
+                React.createElement('h1', null,
+                    React.createElement('a', { id: 'hello-world' }),
+                    'Hello world'),
                 React.createElement('p', null, 'React is pretty awesome'))
 
             ReactDOM.render(hello, document.getElementById('container'))
