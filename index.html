@@ -23,7 +23,9 @@
                 React.createElement('h1', null,
                     React.createElement('a', { id: 'hello-world' }),
                     'Hello world'),
-                React.createElement('p', null, 'React is pretty awesome'))
+                React.createElement('p', {
+                    onClick: function() { console.log('Hi!') }
+                }, 'React is pretty awesome'))
 
             ReactDOM.render(hello, document.getElementById('container'))
         })();
