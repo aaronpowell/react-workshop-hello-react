@@ -19,15 +19,19 @@
             'use strict';
 
             // Put your code here!
-            var hello = React.createElement('div', null,
-                React.createElement('h1', null,
-                    React.createElement('a', { id: 'hello-world' }),
-                    'Hello world'),
-                React.createElement('p', {
-                    onClick: function() { console.log('Hi!') }
-                }, 'React is pretty awesome'))
-
-            ReactDOM.render(hello, document.getElementById('container'))
+            var HelloWorld = React.createClass({
+                displayName: 'HelloWorld',
+                render: function() {
+                    return React.createElement('div', null,
+                        React.createElement('h1', null,
+                            React.createElement('a', { id: 'hello-world' }),
+                            'Hello world'),
+                        React.createElement('p', {
+                            onClick: function() { console.log('Hi!') }
+                        }, 'React is pretty awesome'))
+                }
+            })
+            ReactDOM.render(React.createElement(HelloWorld), document.getElementById('container'))
         })();
     </script>
 </body>
